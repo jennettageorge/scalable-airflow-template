@@ -1,5 +1,6 @@
 {
   "project_slug": "airflow-k8s",
+  "aws_region": "eu-west-1",
   "airflow_executor": [
     "Kubernetes",
     "Celery"

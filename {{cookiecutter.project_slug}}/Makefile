@@ -12,7 +12,7 @@ build:
 	docker build -t {{cookiecutter.local_airflow_image_name}}:latest -f config/docker/Dockerfile .
 	
 push:
-	aws ecr get-login --no-include-email --region us-west-1 --no-verify-ssl | echo $($0)
+	aws ecr get-login-password --region {{cookiecutter.aws_region}} | docker login --username AWS --password-stdin {{cookiecutter.airflow_image_repository}}
 	docker tag {{cookiecutter.local_airflow_image_name}}:latest {{cookiecutter.airflow_image_repository}}
 	docker push {{cookiecutter.airflow_image_repository}}
 
