@@ -24,7 +24,7 @@ dag = DAG("tutorial", default_args=default_args, schedule_interval=timedelta(1))
 t1 = BashOperator(task_id="print_date", bash_command="date", dag=dag)
 
 t2 = BashOperator(task_id="sleep", bash_command="sleep 5", retries=3, dag=dag)
-
+{% raw %}
 templated_command = """
     {% for i in range(5) %}
         echo "{{ ds }}"
@@ -32,6 +32,7 @@ templated_command = """
         echo "{{ params.my_param }}"
     {% endfor %}
 """
+{% endraw %}
 
 t3 = BashOperator(
     task_id="templated",
