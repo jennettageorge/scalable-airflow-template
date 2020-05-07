@@ -1,4 +1,5 @@
 {
+  "project_slug": "airflow-k8s",
   "airflow_executor": [
     "Kubernetes",
     "Celery"
